@@ -1,0 +1,33 @@
+version: "3.9"
+
+x-app: &app
+  env_file:
+    - ./.env
+  restart: always
+
+services:
+  api:
+    build:
+      context: .
+    <<: *app
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    depends_on:
+      - api-database
+
+  api-database:
+    image: postgres:14
+    <<: *app
+    volumes:
+      - api_db_data:/var/lib/postgresql/data/
+    environment:
+      TZ: "Europe/Moscow"
+      PGTZ: "Europe/Moscow"
+    ports:
+      - "5432:5432"
+
+volumes:
+  api_db_data:
+

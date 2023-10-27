@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: backend-app
+    spec:
+      containers:
+        - name: backend-container
+          image: rozarioagro/k8s-api:latest
+          envFrom:
+            - secretRef:
+                name: api-prod-env
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+  selector:
+    matchLabels:
+      app: backend-app
