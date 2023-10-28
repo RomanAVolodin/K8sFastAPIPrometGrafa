@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend-deployment
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -15,7 +15,7 @@ spec:
           envFrom:
             - secretRef:
                 name: api-prod-env
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
   selector:

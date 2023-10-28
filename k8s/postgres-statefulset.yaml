@@ -16,12 +16,16 @@ spec:
           envFrom:
             - secretRef:
                 name: api-prod-env
+          env:
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
           ports:
             - containerPort: 5432
               name: postgres-cli
           volumeMounts:
             - mountPath: "/var/lib/postgresql/data/"
               name: postgres-pvc
+
   selector:
     matchLabels:
       app: postgres-app
