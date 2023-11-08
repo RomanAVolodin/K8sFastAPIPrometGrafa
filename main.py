@@ -2,7 +2,6 @@ import logging
 
 import uvicorn
 from fastapi import FastAPI
-from prometheus_fastapi_instrumentator import Instrumentator
 
 from api.v1.posts import router
 from core.logger import LOGGING
