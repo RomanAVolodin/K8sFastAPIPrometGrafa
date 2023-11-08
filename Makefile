@@ -5,7 +5,7 @@ mini-start:
 	minikube start
 
 build:
-	(eval $(minikube docker-env) && docker build -t rozarioagro/k8s-api:latest .)
+	(eval $(minikube docker-env) && docker build -t k8s-api:latest .)
 
 apply-all:
 	kubectl apply -f k8s/.
