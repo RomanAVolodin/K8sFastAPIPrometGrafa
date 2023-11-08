@@ -26,8 +26,6 @@ async def startup():
         await create_database()
 
 
-Instrumentator().instrument(app).expose(app)
-
 app.include_router(router, prefix='/api/v1/posts')
 
 if __name__ == '__main__':
