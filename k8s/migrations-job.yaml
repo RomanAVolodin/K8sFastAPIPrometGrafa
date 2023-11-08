@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: rozarioagro/k8s-api:latest
+        image: k8s-api:latest
         envFrom:
           - secretRef:
               name: api-prod-env
