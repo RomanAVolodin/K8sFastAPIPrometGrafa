@@ -12,12 +12,16 @@ spec:
       containers:
         - name: backend-container
           image: k8s-api:latest
+          # переменные окружения будем передавать в контейнер из секрета api-prod-env, который создадим далее
           envFrom:
             - secretRef:
                 name: api-prod-env
+          # Так мы указываем minikube использовать ранее собранные
+          # нами локально образы без попытки скачать их из реестра образов
           imagePullPolicy: Never
           ports:
             - containerPort: 8000
   selector:
     matchLabels:
       app: backend-app
+
