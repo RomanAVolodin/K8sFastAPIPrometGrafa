@@ -45,6 +45,7 @@ services:
     ports:
       - 3000:3000
     volumes:
+      - ./grafana_provisioning:/etc/grafana/provisioning
       - grafana_data:/var/lib/grafana
 
 volumes:
