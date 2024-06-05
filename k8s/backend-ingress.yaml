@@ -8,7 +8,7 @@ metadata:
 
 spec:
   rules:
-    - host: p2f.local
+    - host: p2f.production
       http:
         paths:
           - path: /

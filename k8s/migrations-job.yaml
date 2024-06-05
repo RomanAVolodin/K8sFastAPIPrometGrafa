@@ -13,9 +13,9 @@ spec:
         envFrom:
           - secretRef:
               name: api-prod-env
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         args:
         - /bin/sh
         - -c
         - alembic upgrade head
-      restartPolicy: Never
+      restartPolicy: OnFailure
