@@ -3,7 +3,6 @@ kind: Ingress
 metadata:
   name: backend-ingress
   annotations:
-#    ingress.alb.yc.io/group-name: main
     kubernetes.io/ingress.class: nginx
 
 spec:
